@@ -92,7 +92,90 @@ const App = () => {
         },
     ];
 
-    return <Home categories={categories} carousel={carousel} />;
+    let products = [
+        {
+            productLabel: "Apples",
+            altDetailsImage: "Apple Product Image",
+            productImagePath: "products/apples.jpg",
+            oldPrice: 15.0,
+            newPrice: 10.0,
+            productDescription: "Delicious super gala apples.",
+            rating: 1,
+            deliveryTypes: [`two_hours`, `one_day`],
+            discount: [`ten_percent`],
+            favoriteClass: `selected-favorite`,
+            favoriteContent: `favorite`,
+        },
+        {
+            productLabel: "Cauliflower",
+            altDetailsImage: "Cauliflower Product Image",
+            productImagePath: "products/cauliflower-thumb.jpg",
+            oldPrice: 9.0,
+            newPrice: 7.0,
+            productDescription: "Fresh Cauliflower!",
+            rating: 2,
+            deliveryTypes: [`two_hours`, `one_day`],
+            discount: [`fifty_percent`],
+            favoriteClass: `selected-favorite`,
+            favoriteContent: `favorite`,
+        },
+        {
+            productLabel: "Ivy Gourd",
+            altDetailsImage: "Ivy Gourd Product Image",
+            productImagePath: "products/Ivy_gourd.jpg",
+            oldPrice: 15.0,
+            newPrice: 12.0,
+            productDescription: "Indian Ivy Gourd",
+            rating: 3,
+            deliveryTypes: [`one_day`, `two_days`],
+            discount: [`ten_percent`],
+            favoriteClass: `unselected-favorite`,
+            favoriteContent: `favorite_border`,
+        },
+        {
+            productLabel: "Long Squash",
+            altDetailsImage: "Long Squash Product Image",
+            productImagePath: "products/long_squash.jpg",
+            oldPrice: 9.0,
+            newPrice: 6.0,
+            productDescription: "Fresh Long Squash",
+            rating: 4,
+            deliveryTypes: [`two_hours`, `two_days`],
+            discount: [`thirty_percent`],
+            favoriteClass: `unselected-favorite`,
+            favoriteContent: `favorite_border`,
+        },
+        {
+            productLabel: "Mangoes",
+            altDetailsImage: "Mangoes Product Image",
+            productImagePath: "products/mangoes.jpg",
+            oldPrice: 50.0,
+            newPrice: 45.0,
+            productDescription: "Delicious Alphonso Mangoes",
+            rating: 3,
+            deliveryTypes: [`two_hours`, `one_day`],
+            discount: [`forty_percent`],
+            favoriteClass: `selected-favorite`,
+            favoriteContent: `favorite`,
+        },
+        {
+            productLabel: "Oranges",
+            altDetailsImage: "Orange Product Image",
+            productImagePath: "products/Oranges.jpg",
+            oldPrice: 50.0,
+            newPrice: 39.0,
+            productDescription: "Rich in Vitamin C",
+            rating: 4,
+            deliveryTypes: [`two_hours`, `two_days`],
+            discount: [`twenty_percent`],
+            favoriteClass: `selected-favorite`,
+            favoriteContent: `favorite`,
+        },
+    ];
+
+    return (
+        <Home categories={categories} carousel={carousel} products={products} />
+    );
 };
 
 export default App;

@@ -2,6 +2,49 @@ import React, { useState } from "react";
 import FilterResults from "components/FilterResults";
 
 const FilterDetails = ({ products }) => {
+    const [filterState, setFilterState] = useState({
+        deliveryTypes: [],
+        discounts: [],
+        ratings: 0,
+    });
+
+    const filteredProducts = products
+        .filter(
+            (product) =>
+                filterState.deliveryTypes.length === 0 ||
+                product.deliveryTypes.filter((deliveryType) =>
+                    filterState.deliveryTypes.includes(deliveryType)
+                ).length > 0
+        )
+        .filter(
+            (product) =>
+                filterState.discounts.length === 0 ||
+                product.discount.filter((discount) =>
+                    filterState.discounts.includes(discount)
+                ).length > 0
+        )
+        .filter((product) => product.rating >= filterState.ratings);
+
+    const handleDeliveryChange = ({ target }) => {
+        // When a check or uncheck a checkbox, add/remove the "value" from the Array
+
+        if (target.checked) {
+            setFilterState({
+                ...filterState,
+                courses: [...filterState.deliveryTypes, target.value],
+            });
+        } else {
+            setFilterState({
+                ...filterState,
+                courses: filterState.deliveryTypes.filter(
+                    (deliveryType) => deliveryType !== target.value
+                ),
+            });
+        }
+    };
+
+    console.log("filteredProducts", filteredProducts);
+
     return (
         <div className="filter-details">
             <h2 className="">Filter By</h2>
@@ -12,6 +55,7 @@ const FilterDetails = ({ products }) => {
                             <fieldset
                                 id="deliveryTypeFilter"
                                 className="filter-item"
+                                onChange={handleDeliveryChange}
                             >
                                 <legend>Delivery Type</legend>
                                 <ul className="filter-list">
@@ -372,7 +416,7 @@ const FilterDetails = ({ products }) => {
                 </div>
             </div>
             <h2 className="">Filter Results</h2>
-            <FilterResults />
+            <FilterResults result={filteredProducts} />
         </div>
     );
 };

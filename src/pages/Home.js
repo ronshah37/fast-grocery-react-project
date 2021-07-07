@@ -5,14 +5,14 @@ import Carousel from "components/Carousel";
 import FilterDetails from "components/FilterDetails";
 import images from "components/images";
 
-const Home = ({ categories, carousel }) => {
+const Home = ({ categories, carousel, products }) => {
     return (
         <Layout>
             <Carousel data={carousel} />
 
             <CategoryList categories={categories} />
 
-            <FilterDetails />
+            <FilterDetails products={products} />
 
             <div className="foodnutrition-details">
                 <h3 className="">

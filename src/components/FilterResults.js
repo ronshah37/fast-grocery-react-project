@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import ProductList from "components/ProductList";
 
 const FilterResults = ({ result }) => {
     return (
         <div className="filter-results">
-            <section id="filteredResults" className="results"></section>
-
+            <ProductList products={result} />
             <nav aria-label="Pagination" className="pagination">
                 <p>1-6 of 23 products found</p>
                 <ol className="pages">
