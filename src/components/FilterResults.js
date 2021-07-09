@@ -2,42 +2,43 @@ import React, { useState } from "react";
 import ProductList from "components/ProductList";
 
 const FilterResults = ({ result }) => {
+    const [currPage, setCurrPage] = useState(1);
+    const pageSize = 8;
+
+    const startRow = (currPage - 1) * pageSize;
+    const endRow = startRow + pageSize;
+    const totalPages = Math.ceil(result.length / pageSize);
+
+    const paginatedProducts = result.slice(startRow, endRow);
+
+    const updatePage = (page) => {
+        if (page < 0) setCurrPage(1);
+        else if (page > totalPages) setCurrPage(totalPages);
+        else setCurrPage(page);
+    };
+
     return (
         <div className="filter-results">
-            <ProductList products={result} />
+            <ProductList products={paginatedProducts} />
             <nav aria-label="Pagination" className="pagination">
-                <p>1-6 of 23 products found</p>
-                <ol className="pages">
-                    <li>
-                        <a
-                            href="#"
-                            aria-label="Current Page, Page 1"
-                            aria-current="true"
-                        >
-                            1
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" aria-label="Page 2">
-                            2
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" aria-label="Page 3">
-                            3
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" aria-label="Page 4">
-                            4
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" aria-label="Page 5">
-                            5
-                        </a>
-                    </li>
-                </ol>
+                <p id="numProducts">
+                    <button
+                        onClick={() => updatePage(currPage - 1)}
+                        disabled={currPage === 1 ? `disabled` : ``}
+                    >
+                        <span className="material-icons">navigate_before</span>
+                    </button>
+                    Showing{" "}
+                    {paginatedProducts.length === 1 ? `product` : `products`}{" "}
+                    {startRow + 1} to {Math.min(endRow, result.length)} of{" "}
+                    {result.length}
+                    <button
+                        onClick={() => updatePage(currPage + 1)}
+                        disabled={currPage === totalPages ? `disabled` : ``}
+                    >
+                        <span className="material-icons">navigate_next</span>
+                    </button>
+                </p>
             </nav>
         </div>
     );

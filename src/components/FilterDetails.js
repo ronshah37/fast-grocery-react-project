@@ -6,6 +6,8 @@ const FilterDetails = ({ products }) => {
         deliveryTypes: [],
         discounts: [],
         ratings: 0,
+        sort: (productOne, productTwo) =>
+            productOne.newPrice - productTwo.newPrice,
     });
 
     const filteredProducts = products
@@ -23,7 +25,8 @@ const FilterDetails = ({ products }) => {
                     filterState.discounts.includes(discount)
                 ).length > 0
         )
-        .filter((product) => product.rating >= filterState.ratings);
+        .filter((product) => product.rating >= filterState.ratings)
+        .sort(filterState.sort);
 
     const handleDeliveryChange = ({ target }) => {
         // When a check or uncheck a checkbox, add/remove the "value" from the Array
@@ -31,19 +34,65 @@ const FilterDetails = ({ products }) => {
         if (target.checked) {
             setFilterState({
                 ...filterState,
-                courses: [...filterState.deliveryTypes, target.value],
+                deliveryTypes: [...filterState.deliveryTypes, target.value],
             });
         } else {
             setFilterState({
                 ...filterState,
-                courses: filterState.deliveryTypes.filter(
+                deliveryTypes: filterState.deliveryTypes.filter(
                     (deliveryType) => deliveryType !== target.value
                 ),
             });
         }
     };
 
-    console.log("filteredProducts", filteredProducts);
+    const handleDiscountsChange = ({ target }) => {
+        // When a check or uncheck a checkbox, add/remove the "value" from the Array
+
+        if (target.checked) {
+            setFilterState({
+                ...filterState,
+                discounts: [...filterState.discounts, target.value],
+            });
+        } else {
+            setFilterState({
+                ...filterState,
+                discounts: filterState.discounts.filter(
+                    (discount) => discount !== target.value
+                ),
+            });
+        }
+    };
+
+    const handleRatingsChange = ({ target }) => {
+        // When a check or uncheck a checkbox, add/remove the "value" from the Array
+
+        if (target.checked) {
+            setFilterState({
+                ...filterState,
+                ratings: target.value,
+            });
+        }
+    };
+
+    const handleSortChange = ({ target }) => {
+        let sorting;
+
+        if (target.value === "price-high") {
+            sorting = (productOne, productTwo) =>
+                productTwo.newPrice - productOne.newPrice;
+        } else if (target.value === "price-low") {
+            sorting = (productOne, productTwo) =>
+                productOne.newPrice - productTwo.newPrice;
+        }
+
+        setFilterState({
+            ...filterState,
+            sort: sorting,
+        });
+    };
+
+    console.log("filteredProducts length", filteredProducts.length);
 
     return (
         <div className="filter-details">
@@ -106,6 +155,7 @@ const FilterDetails = ({ products }) => {
                             <fieldset
                                 id="discountsFilter"
                                 className="filter-item"
+                                onChange={handleDiscountsChange}
                             >
                                 <legend>Discounts</legend>
                                 <ol className="filter-list">
@@ -184,6 +234,7 @@ const FilterDetails = ({ products }) => {
                             <fieldset
                                 id="ratingsFilter"
                                 className="filter-item"
+                                onChange={handleRatingsChange}
                             >
                                 <legend>Ratings</legend>
                                 <ol className="filter-list">
@@ -392,7 +443,11 @@ const FilterDetails = ({ products }) => {
                                     </li>
                                 </ol>
                             </fieldset>
-                            <fieldset id="sortFilter" className="filter-item">
+                            <fieldset
+                                id="sortFilter"
+                                className="filter-item"
+                                onChange={handleSortChange}
+                            >
                                 <legend>Sort</legend>
                                 <label htmlFor="sort">Show</label>
                                 <select
