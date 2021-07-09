@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import Image from "components/Image";
 
 const Product = ({ product, key }) => {
-    const fullStar = `<span class="material-icons rating-star"> star </span>`;
-    const starBorder = `<span class="material-icons rating-star"> star_border </span>`;
-    const halfStar = `<span class="material-icons rating-star"> star_half </span>`;
+    const fullStar = <span class="material-icons rating-star"> star </span>;
+    const starBorder = (
+        <span class="material-icons rating-star"> star_border </span>
+    );
+    const halfStar = (
+        <span class="material-icons rating-star"> star_half </span>
+    );
     let starsMap = new Map();
 
-    function getStarString(ratings) {
+    function getStarArray(ratings) {
         let index = 0;
         let stars = [];
 
@@ -36,15 +40,15 @@ const Product = ({ product, key }) => {
                 stars.push(starBorder);
             }
             //
-            let starString = stars.join(``);
+            let starArray = [...stars.values()];
             //
-            starsMap.set(ratings, starString);
+            starsMap.set(ratings, starArray);
             //
-            return starString;
+            return starArray;
         }
     }
 
-    let starString = getStarString(product.rating);
+    let ratingStars = getStarArray(product.rating);
 
     return (
         <article className="product">
@@ -62,7 +66,7 @@ const Product = ({ product, key }) => {
                 </data>
                 <p>{product.productDescription}</p>
                 <dl>
-                    <dd> {starString} </dd>
+                    <dd>{ratingStars} </dd>
                 </dl>
             </header>
             <footer className="product-footer">
