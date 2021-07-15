@@ -4,6 +4,7 @@ import CategoryList from "components/CategoryList";
 import Carousel from "components/Carousel";
 import FilterDetails from "components/FilterDetails";
 import images from "components/images";
+import "css/style.css";
 
 const Home = ({ categories, carousel, products }) => {
     return (

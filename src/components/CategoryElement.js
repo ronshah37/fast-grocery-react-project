@@ -1,13 +1,17 @@
 import React from "react";
 import Image from "components/Image";
+import { Link } from "react-router-dom";
 
 const CategoryElement = ({ data }) => {
-    const { categoryPageURL, categoryImagePath, altDetailsImage, key } = data;
+    const { id, categoryPageURL, categoryImagePath, altDetailsImage, key } =
+        data;
 
     return (
         <div className="category">
             <a href={categoryPageURL}>
-                <Image src={categoryImagePath} alt={altDetailsImage} />
+                <Link to={`/category/${id}`}>
+                    <Image src={categoryImagePath} alt={altDetailsImage} />
+                </Link>
             </a>
         </div>
     );

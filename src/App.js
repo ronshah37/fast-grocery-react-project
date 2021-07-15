@@ -1,5 +1,8 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "pages/Home";
+import Category from "pages/Category";
+import { Link } from "react-router-dom";
 
 const App = () => {
     let categories = [
@@ -486,7 +489,20 @@ const App = () => {
     ];
 
     return (
-        <Home categories={categories} carousel={carousel} products={products} />
+        <Router>
+            <Switch>
+                <Route exact path="/">
+                    <Home
+                        categories={categories}
+                        carousel={carousel}
+                        products={products}
+                    />
+                </Route>
+                <Route path="/category/:slug">
+                    <Category />
+                </Route>
+            </Switch>
+        </Router>
     );
 };
 
