@@ -1,0 +1,1 @@
+(self.webpackChunkfast_grocery=self.webpackChunkfast_grocery||[]).push([[2778],{2778:(e,f,s)=>{"use strict";s.r(f),s.d(f,{default:()=>c});const c=s.p+"92fe545781b3c2bf2e7b91e23ebeddd4.avif"}}]);

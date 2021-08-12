@@ -1,0 +1,1 @@
+(self.webpackChunkfast_grocery=self.webpackChunkfast_grocery||[]).push([[2217],{2217:(e,c,s)=>{"use strict";s.r(c),s.d(c,{default:()=>a});const a=s.p+"82941d9a273795be16bb936acc51e109.jpg"}}]);
