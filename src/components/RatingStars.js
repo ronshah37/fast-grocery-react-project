@@ -3,12 +3,12 @@ import Product from "components/Product";
 import { Divider } from "antd";
 
 const RatingStars = ({ rating }) => {
-    const fullStar = <span class="material-icons rating-star"> star </span>;
+    const fullStar = <span className="material-icons rating-star"> star </span>;
     const starBorder = (
-        <span class="material-icons rating-star"> star_border </span>
+        <span className="material-icons rating-star"> star_border </span>
     );
     const halfStar = (
-        <span class="material-icons rating-star"> star_half </span>
+        <span className="material-icons rating-star"> star_half </span>
     );
     let starsMap = new Map();
 

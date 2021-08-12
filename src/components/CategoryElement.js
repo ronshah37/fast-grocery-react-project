@@ -8,11 +8,9 @@ const CategoryElement = ({ data }) => {
 
     return (
         <div className="category">
-            <a href={categoryPageURL}>
-                <Link to={`/category/${id}`}>
-                    <Image src={categoryImagePath} alt={altDetailsImage} />
-                </Link>
-            </a>
+            <Link to={`/category/${id}`}>
+                <Image src={categoryImagePath} alt={altDetailsImage} />
+            </Link>
         </div>
     );
 };

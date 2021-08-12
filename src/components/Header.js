@@ -1,12 +1,13 @@
 import React from "react";
 import images from "components/images";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
         <header className="page-header">
-            <a href="index.html" className="logo">
+            <Link to="/" className="logo">
                 <img src={images.logo} alt="Fast Grocery Logo" />
-            </a>
+            </Link>
 
             <div className="search">
                 <input
@@ -34,14 +35,14 @@ const Header = () => {
             </div>
 
             <div className="my-cart">
-                <a href="#">
+                <Link to="/favourite">
                     <span className="material-icons"> favorite_border </span>
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="/cart">
                     <span className="material-icons shopping-cart">
                         shopping_cart
                     </span>
-                </a>
+                </Link>
             </div>
         </header>
     );

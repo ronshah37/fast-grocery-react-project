@@ -1,8 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Image from "components/Image";
 import RatingStars from "components/RatingStars";
+import UserContext from "contexts/user";
 
 const Product = ({ product, key }) => {
+    const user = useContext(UserContext).data;
+    const { toggleFavourite, addToCart } = useContext(UserContext);
+
+    const handleFavouriteClick = (id) => {
+        // Toggle the favourites
+        console.log(id);
+
+        // Toggle this as a favourite
+        toggleFavourite(id);
+    };
+
+    console.log("User Data Favs:", user.favourites);
+
+    console.log(
+        `User Fav ${product.id}:`,
+        user.favourites.includes(product.id.toString())
+    );
     return (
         <article className="product">
             <header>
@@ -25,12 +43,25 @@ const Product = ({ product, key }) => {
                 </dl>
             </header>
             <footer className="product-footer">
-                <button type="button" className="add-to-cart">
+                <button
+                    type="button"
+                    className="add-to-cart"
+                    onClick={() => addToCart(`${product.id}`)}
+                >
                     Add to Cart
                 </button>
-                <button type="button" className="favorite-button">
-                    <span className="material-icons ${product.favoriteClass}">
-                        {product.favoriteContent}
+                <button
+                    type="button"
+                    className="favorite-button"
+                    onClick={() => handleFavouriteClick(`${product.id}`)}
+                >
+                    <span
+                        className={`material-icons ${
+                            user.favourites.includes(product.id.toString()) &&
+                            `selected-favorite`
+                        }`}
+                    >
+                        favorite
                     </span>
                 </button>
             </footer>
