@@ -15,12 +15,12 @@ const Product = ({ product, key }) => {
         toggleFavourite(id);
     };
 
-    console.log("User Data Favs:", user.favourites);
+    // console.log("User Data Favs:", user.favourites);
 
-    console.log(
-        `User Fav ${product.id}:`,
-        user.favourites.includes(product.id.toString())
-    );
+    // console.log(
+    //     `User Fav ${product.id}:`,
+    //     user.favourites.includes(product.id.toString())
+    // );
     return (
         <article className="product">
             <header>
