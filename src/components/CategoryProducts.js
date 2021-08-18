@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import Product from "components/Product";
-import UserContext from "contexts/user";
-import { useParams } from "react-router-dom";
 
 const CategoryProducts = ({ products, categoryTitle, categoryTitleSuffix }) => {
-    console.log("Category input products", products);
+    // console.log("Category input products", products);
     const [currPage, setCurrPage] = useState(1);
     const pageSize = 4;
 

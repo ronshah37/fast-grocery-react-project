@@ -3,8 +3,7 @@ import Image from "components/Image";
 import { Link } from "react-router-dom";
 
 const CategoryElement = ({ data }) => {
-    const { id, categoryPageURL, categoryImagePath, altDetailsImage, key } =
-        data;
+    const { id, categoryImagePath, altDetailsImage, key } = data;
 
     return (
         <div className="category">
