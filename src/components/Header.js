@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import images from "components/images";
+import UserContext from "contexts/user";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+    const user = useContext(UserContext).data;
+    const cartArr = user.cart;
+
+    let totalProducts = Number(0);
+
+    cartArr.map((cartProd) => {
+        console.log("cartProd.count", cartProd.count);
+        totalProducts += parseInt(cartProd.count);
+        console.log("totalProducts", totalProducts);
+    });
+    //
     return (
         <header className="page-header">
             <Link to="/" className="logo">
@@ -42,6 +54,7 @@ const Header = () => {
                     <span className="material-icons shopping-cart">
                         shopping_cart
                     </span>
+                    <span>{totalProducts}</span>
                 </Link>
             </div>
         </header>

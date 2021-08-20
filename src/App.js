@@ -39,17 +39,17 @@ const App = () => {
     });
 
     const toggleFavourite = (id) => {
-        console.log("Enter toggle Fav");
+        // console.log("Enter toggle Fav");
         if (userData.favourites.includes(id)) {
             // Slice out a
-            console.log("Remove toggle Fav");
+            // console.log("Remove toggle Fav");
             setUserData({
                 ...userData,
                 favourites: userData.favourites.filter((fav) => fav !== id),
             });
         } else {
             // Add it in
-            console.log("Add toggle Fav");
+            // console.log("Add toggle Fav");
             setUserData({
                 ...userData,
                 favourites: [...userData.favourites, id],
@@ -58,7 +58,7 @@ const App = () => {
     };
 
     const addToCart = (id) => {
-        console.log("Add to cart");
+        // console.log("Add to cart");
         const index = userData.cart.findIndex((val) => val.id === id);
 
         if (index === -1)

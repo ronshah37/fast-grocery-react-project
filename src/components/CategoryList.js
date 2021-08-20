@@ -8,9 +8,7 @@ const CategoryList = ({ categories }) => {
 
     return (
         <div className="category-container">
-            <header className="heading">
-                <h1>Shop by Category</h1>
-            </header>
+            <h2 className="heading">Shop by Category</h2>
             <div className="categories">{categorySummary}</div>
         </div>
     );

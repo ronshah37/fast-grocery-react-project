@@ -165,7 +165,8 @@ header > nav > ul li {
 }
 
 .heading {
-    margin: 0.2em;
+    margin: 0.5em;
+    margin-left: 1em;
     padding: 0;
 }
 
@@ -187,7 +188,7 @@ header > nav > ul li {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     flex-grow: 1;
     margin-left: auto;
     margin-right: auto;
@@ -201,8 +202,8 @@ header > nav > ul li {
 }
 
 .category > a > img {
-    width: 23em; /* width of container */
-    height: 8em; /* height of container */
+    width: 23em;
+    height: 8em;
     object-fit: cover;
 }
 /* main changes (categories shown here) ends here */
@@ -212,7 +213,7 @@ header > nav > ul li {
 .filter-sidebar {
     display: flex;
     align-self: flex-start;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .filter-details {
@@ -233,17 +234,18 @@ header > nav > ul li {
 .products-filter {
     padding: 0.2em;
     width: max-content;
+    margin-left: 1em;
 }
 
 .filter-options {
     display: flex;
     align-self: flex-start;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
 }
 
 .filter-item {
-    margin-left: 2em;
+    /* margin-left: 2em; */
     margin-right: 2em;
 }
 
@@ -311,8 +313,8 @@ header > nav > ul li {
 }
 
 .product > header > img {
-    width: 12em; /*width of container */
-    height: 12em; /* height of container */
+    width: 12em;
+    height: 12em;
     object-fit: cover;
     margin-left: auto;
     margin-right: auto;
@@ -323,7 +325,7 @@ header > nav > ul li {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: space-evenly;
 }
 
 .filter-results {
@@ -331,11 +333,11 @@ header > nav > ul li {
 }
 
 .product {
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 1em;
+    margin-right: 1em;
     margin-top: 1em;
     margin-bottom: 1em;
-    padding: 1em;
+    /* padding: 1em; */
     /* border: 2px solid darkgreen; */
     box-shadow: 0.4em 0.8em gray;
     background-color: white;
@@ -408,10 +410,20 @@ dd {
 
 /* Food Nutrition starts */
 
+.nutrition-form-wrapper {
+    margin-left: 1em;
+}
+
+.nutrition-form {
+    margin-left: 1em;
+}
+
 .foodnutrition-details {
     border: 1px solid #aaa;
     border-radius: 4px;
-    padding: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-right: 0.5em;
     margin-top: 0.5em;
     background-color: white;
 }

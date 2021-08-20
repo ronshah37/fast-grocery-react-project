@@ -4,7 +4,7 @@ import Product from "components/Product";
 const CategoryProducts = ({ products, categoryTitle, categoryTitleSuffix }) => {
     // console.log("Category input products", products);
     const [currPage, setCurrPage] = useState(1);
-    const pageSize = 4;
+    const pageSize = 5;
 
     const startRow = (currPage - 1) * pageSize;
     const endRow = startRow + pageSize;

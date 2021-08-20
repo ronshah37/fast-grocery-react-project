@@ -1,6 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import Layout from "components/Layout";
-import Product from "components/Product";
+import Image from "components/Image";
 import UserContext from "contexts/user";
 import { useParams } from "react-router-dom";
 import "css/cart.css";
@@ -448,6 +448,11 @@ const Cart = () => {
         console.log("cartProduct", cartProduct);
         return (
             <li className="cart-row" key={cartProduct.id}>
+                <Image
+                    src={cartProduct.productImagePath}
+                    alt={cartProduct.altDetailsImage}
+                    className="cart-product-image"
+                />
                 <b>{cartProduct.productLabel}</b> ({cartProd.count} x{" "}
                 {useMoney(cartProduct.newPrice)}){" "}
                 <b>{useMoney(cartProduct.newPrice * cartProd.count)}</b>
@@ -457,18 +462,20 @@ const Cart = () => {
 
     return (
         <Layout>
-            <section className="products">
-                <h2>You are in your Cart page</h2>
+            <section className="cart-wrapper">
+                <h2 className="heading">You are in your Cart page</h2>
 
-                {cartArrDisplay.length > 0 ? (
-                    <ul className="cart-row-wrapper"> {cartArrDisplay} </ul>
-                ) : (
-                    "Your Favourite page is empty"
-                )}
-
+                <div className="cart-products">
+                    {cartArrDisplay.length > 0 ? (
+                        <ul className="cart-row-wrapper"> {cartArrDisplay} </ul>
+                    ) : (
+                        <p className="empyt-cart-message">
+                            Your Favourite page is empty
+                        </p>
+                    )}
+                </div>
                 {Boolean(cartArrDisplay.length) && (
                     <div className="checkout-button-div">
-                        <em>(this does not do anything)</em>{" "}
                         <button>Check out {useMoney(subtotal)}</button>
                     </div>
                 )}

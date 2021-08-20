@@ -3,7 +3,7 @@ import ProductList from "components/ProductList";
 
 const FilterResults = ({ result }) => {
     const [currPage, setCurrPage] = useState(1);
-    const pageSize = 8;
+    const pageSize = 5;
 
     const startRow = (currPage - 1) * pageSize;
     const endRow = startRow + pageSize;

@@ -16,11 +16,11 @@ const Home = ({ categories, carousel, products }) => {
             <FilterDetails products={products} />
 
             <div className="foodnutrition-details">
-                <h3 className="">
+                <h2 className="heading">
                     Search for Nutritional Values and learn more about your food
-                </h3>
-                <div>
-                    <form id="foodNutritionForm">
+                </h2>
+                <div className="nutrition-form-wrapper">
+                    <form className="nutrition-form" id="foodNutritionForm">
                         <label htmlFor="foodname">Food name:</label>
                         <input
                             type="text"

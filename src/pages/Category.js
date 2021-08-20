@@ -138,29 +138,32 @@ const Category = () => {
                             <p>
                                 The average rating for products in this category
                                 is
-                                <RatingStars
-                                    rating={
-                                        categoryDetails !== undefined
-                                            ? categoryDetails.categoryInfo
-                                                  .averageRating
-                                            : 5
-                                    }
-                                />
+                                <p>
+                                    <RatingStars
+                                        rating={
+                                            categoryDetails !== undefined
+                                                ? categoryDetails.categoryInfo
+                                                      .averageRating
+                                                : 5
+                                        }
+                                    />
+                                </p>
                             </p>
 
                             <p>
                                 In case you face any issues/ queries with
                                 products from this category, you can contact us
-                                at
-                                <a href="mailto:fruitsvegetablescategory@fastgrocery.com"></a>
-                                {categoryDetails !== undefined
-                                    ? categoryDetails.categoryInfo.email
-                                    : "fruitsvegetablescategory@fastgrocery.com"}
+                                at{" "}
+                                <a href="mailto:fruitsvegetablescategory@fastgrocery.com">
+                                    {categoryDetails !== undefined
+                                        ? categoryDetails.categoryInfo.email
+                                        : " fruitsvegetablescategory@fastgrocery.com"}
+                                </a>
                                 .
                             </p>
                             <p>
                                 For general issues/ queries you can contact us
-                                at
+                                at{" "}
                                 <a href="mailto:general@fastgrocery.com">
                                     general@fastgrocery.com
                                 </a>

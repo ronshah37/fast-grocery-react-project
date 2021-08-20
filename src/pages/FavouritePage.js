@@ -437,7 +437,7 @@ const FavouritePage = () => {
     let favProduct;
     const favArrDisplay = favArr.map((favProd) => {
         favProduct = products.find((prod) => prod.id.toString() === favProd);
-        console.log("favProduct", favProduct);
+        // console.log("favProduct", favProduct);
         return <Product key={favProduct.id} product={favProduct} />;
     });
 

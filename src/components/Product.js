@@ -15,6 +15,15 @@ const Product = ({ product, key }) => {
         toggleFavourite(id);
     };
 
+    const handleAddToCartClick = (id) => {
+        // Toggle the favourites
+        console.log(id);
+
+        // Toggle this as a favourite
+        addToCart(id);
+        alert("Added to cart");
+    };
+
     // console.log("User Data Favs:", user.favourites);
 
     // console.log(
@@ -46,10 +55,11 @@ const Product = ({ product, key }) => {
                 <button
                     type="button"
                     className="add-to-cart"
-                    onClick={() => addToCart(`${product.id}`)}
+                    onClick={() => handleAddToCartClick(`${product.id}`)}
                 >
                     Add to Cart
                 </button>
+
                 <button
                     type="button"
                     className="favorite-button"

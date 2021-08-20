@@ -96,7 +96,7 @@ const FilterDetails = ({ products }) => {
 
     return (
         <div className="filter-details">
-            <h2 className="">Filter By</h2>
+            <h2 className="heading">Filter By</h2>
             <div className="products-filter">
                 <div className="filter-sidebar">
                     <form className="filters">
@@ -470,7 +470,7 @@ const FilterDetails = ({ products }) => {
                     </form>
                 </div>
             </div>
-            <h2 className="">Filter Results</h2>
+            <h2 className="heading">Filter Results</h2>
             <FilterResults result={filteredProducts} />
         </div>
     );
